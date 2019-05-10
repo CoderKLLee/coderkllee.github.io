@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="iOS">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    【iOS 搭建基础框架】编码规范 (代码格式篇) |
+    
+    Bit侠</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="photo-【iOS-搭建基础框架】编码规范-代码格式篇" class="article article-type-photo" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【iOS 搭建基础框架】编码规范 (代码格式篇)
+    </h1>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2018/01/24/【iOS-搭建基础框架】编码规范-代码格式篇/" class="article-date">
+  <time datetime="2018-01-24T09:01:05.000Z" itemprop="datePublished">2018-01-24</time>
+</a>
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>本篇是 <strong>【iOS 搭建基础框架】</strong>系列，<strong>编码规范</strong> 的第二篇  <strong>代码格式篇</strong>。</p>
+<p>其他相关文章传送门如下： </p>
+<ul>
+<li><a href="https://coderkllee.github.io/2018/01/24/iOS-%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83-(%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E7%AF%87" target="_blank" rel="noopener">【iOS 搭建基础框架】编码规范 (命名规范篇)</a>/ )</li>
+</ul>
+<hr>
+<p>本篇内容，摘取自苹果、谷歌的文档翻译，还有网上大神们贡献的资料。 </p>
+<a id="more"></a>
+<p>希望能让你有所收获，没有收获也没关系，记得点赞~ 🙂</p>
+<h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><p>不要在工程里使用Tab键，使用空格来进行缩进。不要去修改<code>Xcode &gt; Preferences &gt; Text Editing</code>里的Tab和自动缩进的默认的 <strong>4</strong> 个空格设置，即使用 <strong>Xcode</strong> 的默认设置即可。 </p>
+<h3 id="方法的书写"><a href="#方法的书写" class="headerlink" title="方法的书写"></a>方法的书写</h3><p>一个典型的 <strong>Objective-C</strong> 方法应该是这样的：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeVideoFrameWithData:(<span class="built_in">NSData</span> *)frameData timeStamp:(<span class="keyword">int</span>)timeStamp &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>-</code>和<code>(void)</code>之间应该有一个空格，第一个大括号<code>{</code>的位置在方法所在行的末尾，同样应该有一个空格。</p>
+<p>如果一个方法有特别多的参数或者名称很长，应该将其按照<code>:</code>来对齐分行显示：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">id</span>)initWithModel:(IPCModle)model</span><br><span class="line">ConnectType:(IPCConnectType)connectType</span><br><span class="line">Resolution:(IPCResolution)resolution</span><br><span class="line">AuthName:(<span class="built_in">NSString</span> *)authName</span><br><span class="line">Password:(<span class="built_in">NSString</span> *)password</span><br><span class="line">MAC:(<span class="built_in">NSString</span> *)mac</span><br><span class="line">AzIp:(<span class="built_in">NSString</span> *)az_ip</span><br><span class="line">AzDns:(<span class="built_in">NSString</span> *)az_dns</span><br><span class="line">Token:(<span class="built_in">NSString</span> *)token</span><br><span class="line">Email:(<span class="built_in">NSString</span> *)email</span><br><span class="line">Delegate:(<span class="keyword">id</span>&lt;IPCConnectHandlerDelegate&gt;)delegate;</span><br></pre></td></tr></table></figure>
+<p>在分行时，如果第一段名称过短，后续名称可以以Tab的长度（4个空格）为单位进行缩进：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)<span class="keyword">short</span>:(GTMFoo *)theFoo</span><br><span class="line">longKeyword:(<span class="built_in">NSRect</span>)theRect</span><br><span class="line">evenLongerKeyword:(<span class="keyword">float</span>)theInterval</span><br><span class="line">error:(<span class="built_in">NSError</span> **)theError &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h3><p>方法调用的格式和书写差不多，可以按照方法的长短来选择写在一行或者分成多行：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写在一行</span></span><br><span class="line">[myObject doFooWith:arg1 name:arg2 error:arg3];</span><br><span class="line"></span><br><span class="line"><span class="comment">//分行写，按照':'对齐</span></span><br><span class="line">[myObject doFooWith:arg1</span><br><span class="line">name:arg2</span><br><span class="line">error:arg3];</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一段名称过短的话后续可以进行缩进</span></span><br><span class="line">[myObj <span class="keyword">short</span>:arg1</span><br><span class="line">longKeyword:arg2</span><br><span class="line">evenLongerKeyword:arg3</span><br><span class="line">error:arg4];</span><br></pre></td></tr></table></figure>
+<p>以下写法是错误的：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误，要么写在一行，要么全部分行</span></span><br><span class="line">[myObject doFooWith:arg1 name:arg2</span><br><span class="line">error:arg3];</span><br><span class="line">[myObject doFooWith:arg1</span><br><span class="line">name:arg2 error:arg3];</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，按照':'来对齐，而不是关键字</span></span><br><span class="line">[myObject doFooWith:arg1</span><br><span class="line">name:arg2</span><br><span class="line">error:arg3];</span><br></pre></td></tr></table></figure>
+<h3 id="public和-private标记符"><a href="#public和-private标记符" class="headerlink" title="@public和@private标记符"></a>@public和@private标记符</h3><p>@public和@private标记符应该以 <strong>一个空格</strong> 来进行缩进：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyClass</span> : <span class="title">NSObject</span> </span>&#123;</span><br><span class="line"><span class="keyword">@public</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">@private</span></span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h3 id="协议（Protocols）"><a href="#协议（Protocols）" class="headerlink" title="协议（Protocols）"></a>协议（Protocols）</h3><p>在书写协议的时候注意用<code>&lt;&gt;</code>括起来的协议和类型名之间是没有空格的，比如<code>IPCConnectHandler()&lt;IPCPreconnectorDelegate&gt;</code>,这个规则适用所有书写协议的地方，包括方法声明、类声明、实例变量等等：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyProtocoledClass</span> : <span class="title">NSObject</span>&lt;<span class="title">NSWindowDelegate</span>&gt; </span>&#123;</span><br><span class="line"><span class="keyword">@private</span></span><br><span class="line"><span class="keyword">id</span>&lt;MyFancyDelegate&gt; _delegate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setDelegate:(<span class="keyword">id</span>&lt;MyFancyDelegate&gt;)aDelegate;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h3 id="闭包（Blocks）"><a href="#闭包（Blocks）" class="headerlink" title="闭包（Blocks）"></a>闭包（Blocks）</h3><p>根据block的长度，有不同的书写规则：</p>
+<ul>
+<li>较短的block可以写在一行内。</li>
+<li>如果分行显示的话，block的右括号<code>}</code>应该和调用block那行代码的第一个非空字符对齐。</li>
+<li>block内的代码采用<strong>4个空格</strong>的缩进。</li>
+<li>如果block过于庞大，应该单独声明成一个变量来使用。</li>
+<li><code>^</code>和<code>(</code>之间，<code>^</code>和<code>{</code>之间都没有空格，参数列表的右括号<code>)</code>和<code>{</code>之间有一个空格。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//较短的block写在一行内</span></span><br><span class="line">[operation setCompletionBlock:^&#123; [<span class="keyword">self</span> onOperationDone]; &#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">//分行书写的block，内部使用4空格缩进</span></span><br><span class="line">[operation setCompletionBlock:^&#123;</span><br><span class="line">[<span class="keyword">self</span>.delegate newDataAvailable];</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用C语言API调用的block遵循同样的书写规则</span></span><br><span class="line"><span class="built_in">dispatch_async</span>(_fileIOQueue, ^&#123;</span><br><span class="line"><span class="built_in">NSString</span>* path = [<span class="keyword">self</span> sessionFilePath];</span><br><span class="line"><span class="keyword">if</span> (path) &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//较长的block关键字可以缩进后在新行书写，注意block的右括号'&#125;'和调用block那行代码的第一个非空字符对齐</span></span><br><span class="line">[[SessionService sharedService]</span><br><span class="line">loadWindowWithCompletionBlock:^(SessionWindow *window) &#123;</span><br><span class="line"><span class="keyword">if</span> (window) &#123;</span><br><span class="line">[<span class="keyword">self</span> windowDidLoad:window];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">[<span class="keyword">self</span> errorLoadingWindow];</span><br><span class="line">&#125;</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">//较长的block参数列表同样可以缩进后在新行书写</span></span><br><span class="line">[[SessionService sharedService]</span><br><span class="line">loadWindowWithCompletionBlock:</span><br><span class="line">^(SessionWindow *window) &#123;</span><br><span class="line"><span class="keyword">if</span> (window) &#123;</span><br><span class="line">[<span class="keyword">self</span> windowDidLoad:window];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">[<span class="keyword">self</span> errorLoadingWindow];</span><br><span class="line">&#125;</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">//庞大的block应该单独定义成变量使用</span></span><br><span class="line"><span class="keyword">void</span> (^largeBlock)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br><span class="line">[_operationQueue addOperationWithBlock:largeBlock];</span><br><span class="line"></span><br><span class="line"><span class="comment">//在一个调用中使用多个block，注意到他们不是像方法那样通过':'对齐的，而是同时进行了4个空格的缩进</span></span><br><span class="line">[myObject doSomethingWith:arg1</span><br><span class="line">firstBlock:^(Foo *a) &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line">secondBlock:^(Bar *b) &#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="数据结构的字面量写法"><a href="#数据结构的字面量写法" class="headerlink" title="数据结构的字面量写法"></a>数据结构的字面量写法</h3><p>应该使用可读性更好的字面量来构造<code>NSArray</code>，<code>NSDictionary</code>等数据结构，避免使用冗长的<code>alloc</code>,<code>init</code>方法。</p>
+<p>如果构造代码写在一行，需要在括号两端留有一个空格，使得被构造的元素于与构造语法区分开来：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确，在字面量的"[]"或者"&#123;&#125;"两端留有空格</span></span><br><span class="line"><span class="built_in">NSArray</span> *array = @[ [foo description], <span class="string">@"Another String"</span>, [bar description] ];</span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123; <span class="built_in">NSForegroundColorAttributeName</span> : [<span class="built_in">NSColor</span> redColor] &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//不正确，不留有空格降低了可读性</span></span><br><span class="line"><span class="built_in">NSArray</span>* array = @[[foo description], [bar description]];</span><br><span class="line"><span class="built_in">NSDictionary</span>* dict = @&#123;<span class="built_in">NSForegroundColorAttributeName</span>: [<span class="built_in">NSColor</span> redColor]&#125;;</span><br></pre></td></tr></table></figure>
+<p>如果构造代码不写在一行内，构造元素需要使用 <strong>两个空格</strong> 来进行缩进，右括号<code>]</code>或者<code>}</code>写在新的一行，并且与调用字面量那行代码的第一个非空字符对齐：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *array = @[</span><br><span class="line"><span class="string">@"This"</span>,</span><br><span class="line"><span class="string">@"is"</span>,</span><br><span class="line"><span class="string">@"an"</span>,</span><br><span class="line"><span class="string">@"array"</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dictionary = @&#123;</span><br><span class="line"><span class="built_in">NSFontAttributeName</span> : [<span class="built_in">NSFont</span> fontWithName:<span class="string">@"Helvetica-Bold"</span> size:<span class="number">12</span>],</span><br><span class="line"><span class="built_in">NSForegroundColorAttributeName</span> : fontColor</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>构造字典时，字典的Key和Value与中间的冒号<code>:</code>都要留有一个空格，多行书写时，也可以将Value对齐：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确，冒号':'前后留有一个空格</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *option1 = @&#123;</span><br><span class="line"><span class="built_in">NSFontAttributeName</span> : [<span class="built_in">NSFont</span> fontWithName:<span class="string">@"Helvetica-Bold"</span> size:<span class="number">12</span>],</span><br><span class="line"><span class="built_in">NSForegroundColorAttributeName</span> : fontColor</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//正确，按照Value来对齐</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *option2 = @&#123;</span><br><span class="line"><span class="built_in">NSFontAttributeName</span> :            [<span class="built_in">NSFont</span> fontWithName:<span class="string">@"Arial"</span> size:<span class="number">12</span>],</span><br><span class="line"><span class="built_in">NSForegroundColorAttributeName</span> : fontColor</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，冒号前应该有一个空格</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *wrong = @&#123;</span><br><span class="line">AKey:       <span class="string">@"b"</span>,</span><br><span class="line">BLongerKey: <span class="string">@"c"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，每一个元素要么单独成为一行，要么全部写在一行内</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *alsoWrong= @&#123; AKey : <span class="string">@"a"</span>,</span><br><span class="line">BLongerKey : <span class="string">@"b"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，在冒号前只能有一个空格，冒号后才可以考虑按照Value对齐</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *stillWrong = @&#123;</span><br><span class="line">AKey       : <span class="string">@"b"</span>,</span><br><span class="line">BLongerKey : <span class="string">@"c"</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="nil检查"><a href="#nil检查" class="headerlink" title="nil检查"></a>nil检查</h3><p>因为在 <strong>Objective-C</strong> 中向nil对象发送命令是不会抛出异常或者导致崩溃的，只是完全的“什么都不干”，所以，只在程序中使用nil来做逻辑上的检查。</p>
+<p>另外，不要使用诸如<code>nil == Object</code>或者<code>Object == nil</code>的形式来判断。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确，直接判断</span></span><br><span class="line"><span class="keyword">if</span> (!objc) &#123;</span><br><span class="line">...    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误，不要使用nil == Object的形式</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">nil</span> == objc) &#123;</span><br><span class="line">...    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>哥们，都浪到这了，顺手点个赞❤️呗~ </p>
+</blockquote>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html" target="_blank" rel="noopener">Apple Coding Guidelines for Cocoa</a></li>
+<li><a href="https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese" target="_blank" rel="noopener">Objective-C-Coding-Guidelines-In-Chinese</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/24/【iOS-搭建基础框架】编码规范-代码格式篇/" data-id="cjvhpi62n0000ibb7kb5yd9g3"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2018/01/22/【iOS-搭建基础框架】编码规范-命名规范篇/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">【iOS 搭建基础框架】编码规范 (命名规范篇)</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Bit侠</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="Bit侠"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">首页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+      <li class="nav-item">
+          <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+      </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
